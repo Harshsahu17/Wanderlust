@@ -104,6 +104,8 @@ app.use((req, res, next) => {
 
 // error handling middleware
 app.use((err, req, res, next) => {
+  console.log(err);
+  
   let {status=500, message="something Wrong"} = err;
   // res.status(status).send(message);
   res.status(status).render("error.ejs", {message});
