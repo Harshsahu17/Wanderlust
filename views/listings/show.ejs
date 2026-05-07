@@ -16,6 +16,7 @@
     </div>
   </div>
 
+  <!-- Fixed: btns now uses same col classes as card above for consistent alignment -->
   <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
     <div class="btns col-11 col-md-8 offset-0 offset-md-2 mt-2">
       <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark edit-btn">Edit</a>
@@ -71,9 +72,10 @@
   <% } %>
 
   <p><b>All Reviews</b></p>
+  <!-- Fixed: col-lg-5 → col-lg-6 for clean 2-column layout at large screens -->
   <div class="row g-3">
     <% for(let review of listing.reviews) { %>
-      <div class="col-12 col-md-6 col-lg-5">
+      <div class="col-12 col-md-6 col-lg-6">
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">@<%= review.author.username %></h5>

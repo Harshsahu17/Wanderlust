@@ -1,104 +1,111 @@
 <% layout("/layouts/boilerplate") %>
 <body>
   <div class="row mt-3">
-    <div class="col-8 offset-2" >
-    <h3>Edit your Listing</h3>
-    <form 
-      method="POST" 
-      action="/listings/<%= listing._id %>?_method=PUT"
-      novalidate 
-      class="needs-validation"
-      enctype="multipart/form-data"
+    <!-- Fixed: col-12 col-sm-10 col-md-8 replaces bare col-8 offset-2 for full mobile/tablet coverage -->
+    <div class="col-12 col-sm-10 col-md-8 mx-auto">
+      <h3>Edit your Listing</h3>
+      <form 
+        method="POST" 
+        action="/listings/<%= listing._id %>?_method=PUT"
+        novalidate 
+        class="needs-validation"
+        enctype="multipart/form-data"
       >
-      <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input 
-        name="listing[title]" 
-        value="<%= listing.title %>" 
-        type="text" 
-        class="form-control"
-        required
-        />
-        <div class="invalid-feedback">Please enter a Title</div>
-      </div>
-      <div class="mb-3">
-        <label for="decription" class="form-label">Description</label>
-        <textarea 
-        name="listing[description]" 
-        class="form-control"
-        required
-        ><%= listing.description %></textarea>
-        <div class="invalid-feedback">Please enter a short description</div>
-      </div>
-
-      <div class="mb-3">
-        Original Listing Image<br>
-        <img src="<%= originalImageUrl %>">
-      </div>
-
-      <div class="mb-3">
-        <label for="image" class="form-label">Image</label>
-        <input 
-        name="listing[image]" 
-        type="file" 
-        class="form-control"
-        />
-        <div class="invalid-feedback">Please insert a Image link</div>
-      </div>
-      <div class="row">
-        <div class="mb-3 ">
-        <label for="price" class="form-label">Price</label>
-        <input 
-        name="listing[price]" 
-        value="<%= listing.price %>" 
-        type="number" 
-        class="form-control" 
-        required
-        />
-        <div class="invalid-feedback">Price should be valid</div>
-        </div>
         <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input 
+            name="listing[title]" 
+            value="<%= listing.title %>" 
+            type="text" 
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter a Title</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea 
+            name="listing[description]" 
+            class="form-control"
+            required
+          ><%= listing.description %></textarea>
+          <div class="invalid-feedback">Please enter a short description</div>
+        </div>
+
+        <div class="mb-3">
+          Original Listing Image<br>
+          <img src="<%= originalImageUrl %>" style="max-width:100%; height:auto; border-radius:0.5rem; margin-top:0.5rem;">
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input 
+            name="listing[image]" 
+            type="file" 
+            class="form-control"
+          />
+          <div class="invalid-feedback">Please insert an Image</div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-12 col-sm-6">
+            <label for="price" class="form-label">Price</label>
+            <input 
+              name="listing[price]" 
+              value="<%= listing.price %>" 
+              type="number" 
+              class="form-control" 
+              required
+            />
+            <div class="invalid-feedback">Price should be valid</div>
+          </div>
+
+          <div class="mb-3 col-12 col-sm-6">
             <label for="category" class="form-label">Category</label>
             <select name="listing[category]" class="form-select">
               <option value="">Select a Category</option>
-              <option value="trending"  <%= listing.category === "trending"      ? "selected" : "" %>>Trending</option>
-              <option value="rooms"     <%= listing.category === "rooms"         ? "selected" : "" %>>Rooms</option>
+              <option value="trending"      <%= listing.category === "trending"      ? "selected" : "" %>>Trending</option>
+              <option value="rooms"         <%= listing.category === "rooms"         ? "selected" : "" %>>Rooms</option>
               <option value="iconic-cities" <%= listing.category === "iconic-cities" ? "selected" : "" %>>Iconic Cities</option>
-              <option value="mountains" <%= listing.category === "mountains"     ? "selected" : "" %>>Mountains</option>
-              <option value="castles"   <%= listing.category === "castles"       ? "selected" : "" %>>Castles</option>
+              <option value="mountains"     <%= listing.category === "mountains"     ? "selected" : "" %>>Mountains</option>
+              <option value="castles"       <%= listing.category === "castles"       ? "selected" : "" %>>Castles</option>
               <option value="amazing-pools" <%= listing.category === "amazing-pools" ? "selected" : "" %>>Amazing Pools</option>
-              <option value="camping"   <%= listing.category === "camping"       ? "selected" : "" %>>Camping</option>
-              <option value="farms"     <%= listing.category === "farms"         ? "selected" : "" %>>Farms</option>
-              <option value="arctic"    <%= listing.category === "arctic"        ? "selected" : "" %>>Arctic</option>
-              <option value="beaches"   <%= listing.category === "beaches"       ? "selected" : "" %>>Beaches</option>
-              <option value="desi-villas" <%= listing.category === "desi-villas" ? "selected" : "" %>>Desi Villas</option>
+              <option value="camping"       <%= listing.category === "camping"       ? "selected" : "" %>>Camping</option>
+              <option value="farms"         <%= listing.category === "farms"         ? "selected" : "" %>>Farms</option>
+              <option value="arctic"        <%= listing.category === "arctic"        ? "selected" : "" %>>Arctic</option>
+              <option value="beaches"       <%= listing.category === "beaches"       ? "selected" : "" %>>Beaches</option>
+              <option value="desi-villas"   <%= listing.category === "desi-villas"   ? "selected" : "" %>>Desi Villas</option>
             </select>
-</div>
-        <div class="mb-3 ">
-        <label for="country" class="form-label">Country</label>
-        <input 
-        name="listing[country]" 
-        value="<%= listing.country %>" 
-        type="text" 
-        class="form-control"
-        required
-        />
-         <div class="invalid-feedback">Country name should be valid</div>
+          </div>
+
+          <div class="mb-3 col-12 col-sm-6">
+            <label for="country" class="form-label">Country</label>
+            <input 
+              name="listing[country]" 
+              value="<%= listing.country %>" 
+              type="text" 
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">Country name should be valid</div>
+          </div>
+
+          <div class="mb-3 col-12 col-sm-6">
+            <label for="location" class="form-label">Location</label>
+            <input 
+              name="listing[location]" 
+              value="<%= listing.location %>" 
+              type="text" 
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">Location should be valid</div>
+          </div>
         </div>
-      </div>
-      <div class="mb-3">
-        <label for="location" class="form-label">Location</label>
-        <input 
-        name="listing[location]" 
-        value="<%= listing.location %>" 
-        type="text" 
-        class="form-control"
-        required
-        />
-        <div class="invalid-feedback">Location should be valid</div>
-      </div>
-      <button class="btn btn-dark edit-btn mt-3">Edit</button> 
-    </form>
+
+        <button class="btn btn-dark edit-btn mt-3">Edit</button>
+      </form>
     </div>
   </div>
   <br>

@@ -39,6 +39,7 @@ body {
   display: flex;
   flex: 1;
   gap: 0.4rem;
+  min-width: 0;
 }
 
 .search-inp {
@@ -46,6 +47,7 @@ body {
   padding: 0.4rem 1rem;
   flex: 1;
   min-width: 0;
+  width: 100%;
 }
 
 .search-btn {
@@ -63,13 +65,24 @@ body {
   color: #fff;
 }
 
+/* ===== FILTERS + TAX TOGGLE ROW ===== */
+.filters-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  padding: 0.5rem 0 0.75rem 0;
+  overflow: hidden;
+}
+
 /* ===== FILTERS BAR ===== */
 #filters {
   display: flex;
   align-items: center;
   overflow-x: auto;
   gap: 0;
-  padding: 0.5rem 0 0.75rem 0;
+  flex: 1;
+  min-width: 0;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   flex-wrap: nowrap;
@@ -122,7 +135,7 @@ body {
   font-weight: 700;
 }
 
-/* Tax Toggle — separate row on mobile */
+/* Tax Toggle */
 .tax-toggle {
   border: 1px solid #ccc;
   border-radius: 1rem;
@@ -150,7 +163,7 @@ body {
   border-radius: 1rem !important;
   width: 100% !important;
   object-fit: cover !important;
-  height: 18rem;
+  height: clamp(10rem, 40vw, 18rem);
 }
 
 .card-body {
@@ -193,6 +206,10 @@ body {
   margin-top: 0.75rem;
 }
 
+.btns form {
+  margin: 0;
+}
+
 /* ===== FORMS ===== */
 .add-btn {
   background-color: #fe424d !important;
@@ -202,6 +219,13 @@ body {
 .edit-btn {
   background-color: #fe424d !important;
   border: none !important;
+}
+
+/* Auth forms (login / signup) */
+.auth-form {
+  width: 35%;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* ===== FOOTER ===== */
@@ -265,7 +289,6 @@ body {
     font-size: 1.5rem;
   }
 
-  /* Search bar: always visible below brand row */
   .navbar-collapse {
     padding-top: 0.5rem;
   }
@@ -281,15 +304,13 @@ body {
 
   .search-btn {
     font-size: 0.88rem;
-    padding: 0.38rem 0.8rem;
+    padding: 0.38rem 0.6rem;
   }
 
-  /* Hide "Search" text, keep icon only */
   .search-btn .search-text {
     display: none;
   }
 
-  /* Nav links: horizontal row, compact */
   .nav-links-group {
     display: flex;
     flex-wrap: wrap;
@@ -302,10 +323,16 @@ body {
     padding: 0.25rem 0.5rem !important;
   }
 
-  /* --- Filters --- */
-  #filters {
+  /* --- Filters row: stack vertically on mobile --- */
+  .filters-row {
+    flex-direction: column;
+    align-items: stretch;
+    overflow: visible;
     padding: 0.4rem 0 0.6rem 0;
-    margin: 0 -0.75rem; /* bleed to edges */
+  }
+
+  #filters {
+    margin: 0 -0.75rem;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
@@ -323,7 +350,7 @@ body {
     font-size: 0.65rem;
   }
 
-  /* Tax toggle: below filters on its own line */
+  /* Tax toggle: full width below filters */
   .tax-toggle {
     margin-left: 0;
     margin-top: 0.6rem;
@@ -333,9 +360,9 @@ body {
     border-radius: 0.75rem;
   }
 
-  /* --- Listing cards: 1 column --- */
+  /* --- Listing cards --- */
   .card-img-top {
-    height: 12rem;
+    height: clamp(9rem, 45vw, 13rem);
   }
 
   /* --- Show page --- */
@@ -344,25 +371,17 @@ body {
     border-radius: 0.6rem;
   }
 
-  .col-8.offset-2 {
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 0 0.5rem;
-  }
-
-  .col-5.ms-5 {
-    width: 100% !important;
-    margin-left: 0 !important;
-  }
-
   .btns {
     padding: 0;
   }
 
-  /* --- Forms --- */
-  .row.mt-3 .col-3.offset-4,
-  .row.mt-3 .col-8.offset-2 {
+  /* --- Auth forms --- */
+  .auth-form {
+    width: 95% !important;
+  }
+
+  /* Alert */
+  .alert.col-6.offset-3 {
     width: 95% !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -373,13 +392,6 @@ body {
     height: auto;
     border-radius: 0.5rem;
   }
-
-  /* Alert */
-  .alert.col-6.offset-3 {
-    width: 95% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
 }
 
 /* ===========================
@@ -387,9 +399,14 @@ body {
 =========================== */
 @media (min-width: 577px) and (max-width: 991px) {
 
+  .filters-row {
+    flex-wrap: wrap;
+  }
+
   .tax-toggle {
     margin-left: 0.75rem;
     font-size: 0.8rem;
+    flex-shrink: 0;
   }
 
   .filter div {
@@ -401,23 +418,16 @@ body {
   }
 
   .card-img-top {
-    height: 15rem;
+    height: clamp(10rem, 35vw, 15rem);
   }
 
   .show-img {
     height: 40vh;
   }
 
-  .col-8.offset-2 {
-    width: 88% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .col-3.offset-4 {
+  /* Auth forms */
+  .auth-form {
     width: 60% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
   }
 }
 
