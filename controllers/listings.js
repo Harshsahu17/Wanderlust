@@ -41,13 +41,18 @@ module.exports.createListing = async (req, res) => {
 module.exports.renderEditForm = async (req, res) => {
   let { id } = req.params;
   const listing = await Listing.findById(id);
-  if(!listing){
+  if (!listing) {
     req.flash("error", "Listing you requested for does not exist!");
     return res.redirect("/listings");
   }
-  let originalImageUrl = listing.image.url;
-  originalImageUrl = originalImageUrl.replace("/upload", "/upload/h_200,w_400");
-  res.render("listings/edit.ejs", { listing, originalImageUrl});
+
+  // ✅ Guard against missing/malformed image
+  let originalImageUrl = listing.image?.url || "";
+  if (originalImageUrl) {
+    originalImageUrl = originalImageUrl.replace("/upload", "/upload/h_200,w_400");
+  }
+
+  res.render("listings/edit.ejs", { listing, originalImageUrl });
 };
 
 module.exports.updateListing = async (req, res) => {
