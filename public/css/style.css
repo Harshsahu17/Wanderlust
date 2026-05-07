@@ -159,4 +159,50 @@ body {
     display: flex;
     align-items: center;
 }
+.filter {
+    text-align: center;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    opacity: 0.7;
+    text-decoration: none;
+    color: #222222;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
 
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.filter p {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    color: #222222;
+}
+
+.card-img-overlay {
+    opacity: 0;
+    pointer-events: none; /* add this - click block nahi karega */
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+.active-filter {
+    opacity: 1 !important;
+    border-bottom: 3px solid black;
+    padding-bottom: 6px;
+    font-weight: 600;
+}
+
+.active-filter i {
+    color: #fe424d;
+    transform: scale(1.2);
+}
+
+.active-filter p {
+    font-weight: 700;
+    color: #222222;
+}
