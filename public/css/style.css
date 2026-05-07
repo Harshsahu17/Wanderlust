@@ -1,211 +1,450 @@
+/* ===== BASE ===== */
 body {
-    font-family: "Plus Jakarta Sans", sans-serif !important;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
-    flex: 1;
+  flex: 1;
 }
 
-/* navbar */
+/* ===== NAVBAR ===== */
 .navbar {
-    height: 4rem;
-    background-color: white;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  min-height: 4rem;
 }
 
 .fa-compass {
-    color: #fe424d;
-    font-size: 2rem;
-    margin-left: 1rem;
+  color: #fe424d;
+  font-size: 1.8rem;
+  margin-left: 0.3rem;
+}
+
+.brand {
+  color: #fe424d;
+  font-size: 1.3rem;
+  margin-left: 0.3rem;
 }
 
 .nav-link {
-    color: #222222 !important;
+  color: #222222 !important;
+  padding: 0.3rem 0.6rem !important;
 }
 
-/* footer */
+/* Search */
+.search-form {
+  display: flex;
+  flex: 1;
+  gap: 0.4rem;
+}
+
+.search-inp {
+  border-radius: 25px;
+  padding: 0.4rem 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.search-btn {
+  background-color: #fe424d;
+  color: #fff;
+  border-radius: 25px;
+  border: none;
+  padding: 0.4rem 1rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.search-btn:hover {
+  background-color: #d9363f;
+  color: #fff;
+}
+
+/* ===== FILTERS BAR ===== */
+#filters {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  gap: 0;
+  padding: 0.5rem 0 0.75rem 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex-wrap: nowrap;
+}
+
+#filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #222222;
+  opacity: 0.65;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  padding: 0.3rem 0.8rem;
+  min-width: 60px;
+}
+
+.filter:hover {
+  opacity: 1;
+}
+
+.filter div {
+  font-size: 1.3rem;
+}
+
+.filter p {
+  font-size: 0.72rem;
+  margin: 0.25rem 0 0 0;
+  color: #222222;
+  white-space: nowrap;
+}
+
+.active-filter {
+  opacity: 1 !important;
+  border-bottom: 2px solid #222;
+  font-weight: 600;
+}
+
+.active-filter i {
+  color: #fe424d;
+}
+
+.active-filter p {
+  font-weight: 700;
+}
+
+/* Tax Toggle — separate row on mobile */
+.tax-toggle {
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 0.82rem;
+  margin-left: 1rem;
+}
+
+.tax-info {
+  font-size: 0.78rem;
+  display: none;
+}
+
+/* ===== LISTING CARDS ===== */
+.listing-card {
+  border: none !important;
+  margin-bottom: 1.5rem;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  height: 18rem;
+}
+
+.card-body {
+  padding: 0.5rem 0 0 0 !important;
+}
+
+.listing-link {
+  text-decoration: none;
+}
+
+.card-img-overlay {
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 1rem;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.15;
+  background-color: white;
+}
+
+/* ===== SHOW PAGE ===== */
+.show-img {
+  height: 55vh;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.show-card {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btns {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+/* ===== FORMS ===== */
+.add-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+.edit-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+/* ===== FOOTER ===== */
 .f-info-links a {
-    margin-right: 0.6rem;
-    text-decoration: none;
-    color: #222222;
+  margin-right: 0.6rem;
+  text-decoration: none;
+  color: #222222;
 }
 
 .f-info-links a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .f-info-socials,
 .f-info-brand,
 .f-info-links {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .f-info-socials i {
-    font-size: 1.2rem;
-    margin-right: 1rem;
+  font-size: 1.2rem;
+  margin-right: 1rem;
 }
 
 .f-info {
-    text-align: center;
-    height: 8rem;
-    background-color: #ebebeb;
-    display: flex;
+  text-align: center;
+  min-height: 8rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1rem;
+}
+
+/* ===========================
+   MOBILE FIRST — ≤576px
+=========================== */
+@media (max-width: 576px) {
+
+  /* --- Navbar --- */
+  .navbar {
+    padding: 0.5rem 0.75rem;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-evenly;
-}
+  }
 
-/* cards */
-.listing-card {
-    border: none !important;
-    margin-bottom: 2rem;
-}
+  .navbar-brand {
+    flex: 1;
+  }
 
-.card-img-top {
-    border-radius: 1rem !important;
-    width: 100% !important;
-    object-fit: cover !important;
-}
+  .brand {
+    font-size: 1.1rem;
+  }
 
-.card-body {
-    padding: 0 !important;
-}
+  .fa-compass {
+    font-size: 1.5rem;
+  }
 
-.card-text p {
-    font-weight: 400 !important;
-}
+  /* Search bar: always visible below brand row */
+  .navbar-collapse {
+    padding-top: 0.5rem;
+  }
 
-.listing-link {
-    text-decoration: none;
-}
-
-/* cards effect */
-.card-img-overlay {
-    opacity: 0;
-}
-
-.card-img-overlay:hover {
-    opacity: 0.2;
-    background-color: white;
-}
-
-/* new page */
-.add-btn {
-    background-color: #fe424d !important;
-    border: none !important;
-}
-
-/* edit page */
-.edit-btn {
-    background-color: #fe424d !important;
-    border: none !important;
-}
-
-/* show page */
-.show-img {
-    height: 60vh;
+  .search-form {
     width: 100%;
-    object-fit: cover;
-    border-radius: 1rem;
-}
+  }
 
-.btns {
-    display: flex;
-}
+  .search-inp {
+    font-size: 0.88rem;
+    padding: 0.38rem 0.9rem;
+  }
 
-.show-card {
-    padding-left: 0;
-    padding-right: 0;
-}
+  .search-btn {
+    font-size: 0.88rem;
+    padding: 0.38rem 0.8rem;
+  }
 
+  /* Hide "Search" text, keep icon only */
+  .search-btn .search-text {
+    display: none;
+  }
 
-
-/* filters navbar */
-#filters {
+  /* Nav links: horizontal row, compact */
+  .nav-links-group {
     display: flex;
     flex-wrap: wrap;
-    /* align-items: center; */
+    gap: 0.2rem;
+    padding-top: 0.4rem;
+  }
+
+  .nav-link {
+    font-size: 0.88rem;
+    padding: 0.25rem 0.5rem !important;
+  }
+
+  /* --- Filters --- */
+  #filters {
+    padding: 0.4rem 0 0.6rem 0;
+    margin: 0 -0.75rem; /* bleed to edges */
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .filter {
+    min-width: 52px;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .filter div {
+    font-size: 1.15rem;
+  }
+
+  .filter p {
+    font-size: 0.65rem;
+  }
+
+  /* Tax toggle: below filters on its own line */
+  .tax-toggle {
+    margin-left: 0;
+    margin-top: 0.6rem;
+    font-size: 0.78rem;
+    width: 100%;
+    justify-content: center;
+    border-radius: 0.75rem;
+  }
+
+  /* --- Listing cards: 1 column --- */
+  .card-img-top {
+    height: 12rem;
+  }
+
+  /* --- Show page --- */
+  .show-img {
+    height: 28vh;
+    border-radius: 0.6rem;
+  }
+
+  .col-8.offset-2 {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 0.5rem;
+  }
+
+  .col-5.ms-5 {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .btns {
+    padding: 0;
+  }
+
+  /* --- Forms --- */
+  .row.mt-3 .col-3.offset-4,
+  .row.mt-3 .col-8.offset-2 {
+    width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .mb-3 img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  /* Alert */
+  .alert.col-6.offset-3 {
+    width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
-.filter {
-    text-align: center;
-    margin-right: 2rem;
-    margin-top: 2rem;
-    opacity: 0.7;
-}
+/* ===========================
+   TABLET — 577px–991px
+=========================== */
+@media (min-width: 577px) and (max-width: 991px) {
 
-.filter:hover {
-    opacity: 1;
-    cursor: pointer;
-}
-
-.filter p {
+  .tax-toggle {
+    margin-left: 0.75rem;
     font-size: 0.8rem;
+  }
+
+  .filter div {
+    font-size: 1.2rem;
+  }
+
+  .filter p {
+    font-size: 0.7rem;
+  }
+
+  .card-img-top {
+    height: 15rem;
+  }
+
+  .show-img {
+    height: 40vh;
+  }
+
+  .col-8.offset-2 {
+    width: 88% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .col-3.offset-4 {
+    width: 60% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
-.tax-info {
-    display: none;
-}
+/* ===========================
+   DESKTOP — ≥992px
+=========================== */
+@media (min-width: 992px) {
 
-.tax-toggle {
-    border: 1px solid black;
-    border-radius: 1rem;
-    height: 3rem;
-    padding: 1rem;
-    margin-left: 2rem;
-    margin-top: 1.8rem;
-    display: flex;
-    align-items: center;
-}
-.filter {
-    text-align: center;
-    margin-right: 2rem;
-    margin-top: 2rem;
-    opacity: 0.7;
-    text-decoration: none;
-    color: #222222;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
+  #filters {
+    flex-wrap: nowrap;
+  }
 
-.filter:hover {
-    opacity: 1;
-    cursor: pointer;
-}
+  .tax-toggle {
+    margin-left: 1.5rem;
+    font-size: 0.85rem;
+  }
 
-.filter p {
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
-    color: #222222;
-}
+  .filter div {
+    font-size: 1.4rem;
+  }
 
-.card-img-overlay {
-    opacity: 0;
-    pointer-events: none; /* add this - click block nahi karega */
-}
+  .filter p {
+    font-size: 0.78rem;
+  }
 
-.card-img-overlay:hover {
-    opacity: 0.2;
-    background-color: white;
-}
-.active-filter {
-    opacity: 1 !important;
-    border-bottom: 3px solid black;
-    padding-bottom: 6px;
-    font-weight: 600;
-}
-
-.active-filter i {
-    color: #fe424d;
-    transform: scale(1.2);
-}
-
-.active-filter p {
-    font-weight: 700;
-    color: #222222;
+  .filter {
+    padding: 0.3rem 1rem;
+    min-width: 70px;
+  }
 }
