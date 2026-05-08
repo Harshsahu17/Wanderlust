@@ -7,21 +7,8 @@
       <b class="brand">Wanderlust</b>
     </a>
 
-    <!-- Toggler -->
-    <button
-      class="navbar-toggler ms-auto"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
     <!-- Search bar: always visible, outside collapse, with min-width:0 fix -->
-    <form class="search-form order-3 order-md-0 w-100 w-md-auto flex-md-grow-1 mx-md-3" role="search" action="/listings" method="GET">
+    <form class="search-form order-2 order-md-0 flex-md-grow-1 mx-md-3" role="search" action="/listings" method="GET">
       <input
         class="form-control search-inp"
         type="search"
@@ -36,17 +23,30 @@
       </button>
     </form>
 
+    <!-- Toggler: order-3 on mobile so it sits after search, always at far right -->
+    <button
+      class="navbar-toggler order-3 order-md-0 ms-auto"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
     <!-- Collapsible links -->
-    <div class="collapse navbar-collapse order-4" id="navbarNav">
-      <div class="nav-links-group navbar-nav ms-md-auto">
-        <a class="nav-link" href="/listings">Explore</a>
-        <a class="nav-link" href="/listings/new">Host</a>
+    <div class="collapse navbar-collapse order-4 w-100" id="navbarNav">
+      <div class="nav-links-group navbar-nav ms-auto text-end">
+        <a class="nav-link text-end" href="/listings">Explore</a>
+        <a class="nav-link text-end" href="/listings/new">Host</a>
         <% if (!currUser) { %>
-          <a class="nav-link" href="/signup"><b>Sign up</b></a>
-          <a class="nav-link" href="/login"><b>Log in</b></a>
+          <a class="nav-link text-end" href="/signup"><b>Sign up</b></a>
+          <a class="nav-link text-end" href="/login"><b>Log in</b></a>
         <% } %>
         <% if (currUser) { %>
-          <a class="nav-link" href="/logout"><b>Log out</b></a>
+          <a class="nav-link text-end" href="/logout"><b>Log out</b></a>
         <% } %>
       </div>
     </div>
