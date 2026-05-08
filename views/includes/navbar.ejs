@@ -37,16 +37,16 @@
     </button>
 
     <!-- Collapsible links -->
-    <div class="collapse navbar-collapse order-4 w-100" id="navbarNav">
-      <div class="nav-links-group navbar-nav ms-auto text-end">
-        <a class="nav-link text-end" href="/listings">Explore</a>
-        <a class="nav-link text-end" href="/listings/new">Host</a>
+    <div class="collapse navbar-collapse order-4" id="navbarNav">
+      <div class="nav-links-group navbar-nav ms-md-auto">
+        <a class="nav-link" href="/listings">Explore</a>
+        <a class="nav-link" href="/listings/new">Host</a>
         <% if (!currUser) { %>
-          <a class="nav-link text-end" href="/signup"><b>Sign up</b></a>
-          <a class="nav-link text-end" href="/login"><b>Log in</b></a>
+          <a class="nav-link" href="/signup"><b>Sign up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
         <% } %>
         <% if (currUser) { %>
-          <a class="nav-link text-end" href="/logout"><b>Log out</b></a>
+          <a class="nav-link" href="/logout"><b>Log out</b></a>
         <% } %>
       </div>
     </div>
