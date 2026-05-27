@@ -298,18 +298,6 @@ initData.data = initData.data.map((obj) => ({
 
 ---
 
-## 📸 Screenshots
-
-> _Add screenshots of your app here_
-
-| Page | Preview |
-|------|---------|
-| Home / Listings | _(screenshot)_ |
-| Listing Detail | _(screenshot)_ |
-| Create Listing | _(screenshot)_ |
-| Login / Signup | _(screenshot)_ |
-
----
 
 ## 🐛 Known Issues & Future Improvements
 
@@ -361,4 +349,4 @@ This project is licensed under the **ISC License**.
 
 ---
 
-<p align="center">Made with ❤️ by <a href="https://github.com/your-username">your-username</a></p>
+<p align="center">Made with ❤️ by <a href="https://github.com/Harshsahu17">Harsh Sahu</a></p>
